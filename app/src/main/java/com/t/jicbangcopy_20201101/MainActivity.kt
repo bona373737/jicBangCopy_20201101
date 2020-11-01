@@ -1,5 +1,6 @@
 package com.t.jicbangcopy_20201101
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.ArrayAdapter
@@ -18,6 +19,14 @@ class MainActivity : BaseActivity() {
     }
 
     override fun setupEvents() {
+        roomListView.setOnItemClickListener {parent,view,position,id ->
+            val clickedRoom = mRooms[position]
+
+            val myIntent = Intent(mContext, ViewRoomDetailActivity::class.java)
+            myIntent.putExtra("roomData", clickedRoom)
+            startActivity(myIntent)
+
+        }
     }
     override fun setValues() {
         mRooms.add(Room(8500,"서울시 강남구",-2, "서울시 강남 지하2층방입니다."))
