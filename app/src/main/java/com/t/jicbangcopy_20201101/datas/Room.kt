@@ -29,7 +29,7 @@ class Room(val price:Int,
             return "${uk}억 ${commaRest}"
         }
         else{
-            return "1억이 안됨"
+            return NumberFormat.getNumberInstance(Locale.KOREA).format(price)
         }
 
     }
