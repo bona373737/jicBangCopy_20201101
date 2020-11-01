@@ -5,7 +5,9 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ArrayAdapter
+import android.widget.TextView
 import com.t.jicbangcopy_20201101.datas.Room
+import kotlinx.android.synthetic.main.room_list_item.view.*
 
 class RoomAdapter(val mContext:Context,
                   val redId:Int,
@@ -20,6 +22,16 @@ class RoomAdapter(val mContext:Context,
             tempRow = inf.inflate(R.Layout.room_list_item, null)
         }
         val row = tempRow!!
+
+        val roomData = mList[position]
+
+        val priceTxt = row.findViewById<TextView>(R.id.priceTxt)
+        val addreesAndFloor = row.findViewById<TextView>(R.id.addressAndFloorTxt)
+        val descriptionTxt = row.findViewById<TextView>(R.id.descriptionTxt)
+
+
         return row
+
+
     }
 }
