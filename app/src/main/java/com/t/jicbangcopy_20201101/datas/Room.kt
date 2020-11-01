@@ -25,11 +25,26 @@ class Room(val price:Int,
             val rest = price % 10000
 //            나머지 값에 콤마 처리 추가 적용
             val commaRest = NumberFormat.getNumberInstance(Locale.US).format(rest)
-//             String 가공하여 uk변수 + commaRest변수 합쳐서 출력하기
+//             String 가공하여 uk변수 + commaRest변수 합쳐서 출력하기_string가공할때는 ${} 으로 진행
             return "${uk}억 ${commaRest}"
         }
         else{
             return NumberFormat.getNumberInstance(Locale.KOREA).format(price)
+        }
+
+    }
+
+    fun getFormatedFloor() : String {
+//        floor의 값이 1이상, 0, 그외(0미만) 여부에 따른 분기처리
+        if (floor >= 1 ) {
+            return "${floor}층"
+        }
+        else if (floor == 0 ) {
+            return "반지하"
+        }
+        else{
+//            -1, -2, -3  =>  지하1층, 지하2층, 지하3층
+            return "지하${-floor}층"
         }
 
     }
