@@ -1,5 +1,8 @@
 package com.t.jicbangcopy_20201101.datas
 
+import java.text.NumberFormat
+import java.util.*
+
 class Room(val price:Int,
            val address:String,
            val floor:Int,
@@ -20,11 +23,13 @@ class Room(val price:Int,
             val uk = price / 10000
 //            나머지는 % 연산 이용하여 구하기
             val rest = price % 10000
-//             String 가공하여 uk변수 + rest변수 합쳐서 출력하기
-            return "${uk}억 ${rest}"
+//            나머지 값에 콤마 처리 추가 적용
+            val commaRest = NumberFormat.getNumberInstance(Locale.US).format(rest)
+//             String 가공하여 uk변수 + commaRest변수 합쳐서 출력하기
+            return "${uk}억 ${commaRest}"
         }
         else{
-            return "1어이 안됨"
+            return "1억이 안됨"
         }
 
     }
