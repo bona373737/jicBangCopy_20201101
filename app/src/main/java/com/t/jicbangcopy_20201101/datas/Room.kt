@@ -12,7 +12,16 @@ class Room(val price:Int,
     fun getFormatedPrice():String {
 //        price값이 1억 이상인지 아닌지에 따라 각각 다른 활동 로직
         if (price >= 10000){
-            return "1억이상"
+
+//            price : 25300, 175000 emd 1만보다 큰 상태
+//            결과 : 2억 5300,  17억 5000  =>  ?억 + 나머지?
+
+//            억단위는 10000으로 나누었을때 나오는 몫
+            val uk = price / 10000
+//            나머지는 % 연산 이용하여 구하기
+            val rest = price % 10000
+//             String 가공하여 uk변수 + rest변수 합쳐서 출력하기
+            return "${uk}억 ${rest}"
         }
         else{
             return "1어이 안됨"
